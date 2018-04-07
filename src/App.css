@@ -1,0 +1,42 @@
+.App{
+    text-align: center;
+    margin-top:20px;
+}
+.Left,.Right{
+    display: inline-block;
+    width: 40%;
+    border:1px solid black;
+    padding:30px;
+    vertical-align: top;
+    text-align: left;
+}
+.add{
+    border:1px solid black;
+    border-radius: 4px;
+    padding: 5px 10px;
+    display: inline-block;
+    margin-left: 10px;
+}
+.Right{
+    margin-left: 20px;
+}
+.input{
+    margin-left: 10px;
+}
+.design-btn{
+    margin: 20px;
+    border: 1px solid black;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.row{
+    height: 2px;
+}
+.col{
+	display: inline-block;
+	width: 2px;
+	height: 2px;
+	vertical-align: top;
+}
