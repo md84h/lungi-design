@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
+import {colorList} from './colors';
 
-const colorList= ['white','black','blue','navy','purple','red','maroon','green','lightgreen','darkgreen','grey'];
 class App extends Component {
     constructor(){
         super();
         this.state={
-            bheem : [{color:'',count:0}],
-            loom : [{color:'',count:0}],
+            bheem : [{color:'',count:''}],
+            loom : [{color:'',count:''}],
             designPattern : null,
             bheemRepeat : 1,
             loomRepeat : 1
@@ -36,6 +36,7 @@ class App extends Component {
                 <div className="row" key={"row"+rIndex}>
                     {
                         col.map((cData,cIndex)=>{
+                            flag = !flag;
                             let style = {background : flag ? rData : cData}
                             return(
                                 <div className="col" key={"col"+cIndex} style={style}></div>
@@ -63,14 +64,14 @@ class App extends Component {
                 <option value=''>Select Color</option>
                 {
                     colorList.map((color,index)=>(
-                        <option key={type+color+index} value={color}>{color}</option>
+                        <option key={type+color.name+index} value={color.value}>{color.name}</option>
                     ))
                 }
             </select>
             <input text="text" className="input" value={data.count} onChange={e=>{this.inputChange(e,type,index)}} />
             {
                 index === this.state[type].length-1 ?
-                    <div className="add" onClick={e=>{this.setState({type:this.state[type].push({color:'',count:0})})}}>+</div>
+                    <div className="add" onClick={e=>{this.setState({type:this.state[type].push({color:'',count:''})})}}>+</div>
                 :
                     null
             }
@@ -80,34 +81,40 @@ class App extends Component {
         let {bheem,loom,designPattern,bheemRepeat,loomRepeat} = this.state;
         return (
             <div className="App">
-                <div className="Left">
-                    <p>Bheem</p>
-                    {
-                        bheem.map((data,index)=>(this.renderColorBox(data,'bheem',index)))
-                    }
-                    <div>
-                        Repeat
-                        <input type="text" value={bheemRepeat} onChange={e=>{this.setState({bheemRepeat:e.target.value})}} />
-                        Times
+                <div className="header">Lungi Design</div>
+                <div className="input-container">
+                    <div className="Left">
+                        <p>Bheem</p>
+                        {
+                            bheem.map((data,index)=>(this.renderColorBox(data,'bheem',index)))
+                        }
+                        <div>
+                            Repeat
+                            <input type="text" className="input repeatInput" value={bheemRepeat} onChange={e=>{this.setState({bheemRepeat:e.target.value})}} />
+                            Times
+                        </div>
+                    </div>
+                    <div className="Right">
+                        <p>Loom</p>
+                        {
+                            loom.map((data,index)=>(this.renderColorBox(data,'loom',index)))
+                        }
+                        <div>
+                            Repeat
+                            <input type="text" className="input repeatInput" value={loomRepeat} onChange={e=>{this.setState({loomRepeat:e.target.value})}} />
+                            Times
+                        </div>
                     </div>
                 </div>
-                <div className="Right">
-                    <p>Loom</p>
-                    {
-                        loom.map((data,index)=>(this.renderColorBox(data,'loom',index)))
-                    }
-                    <div>
-                        Repeat
-                        <input type="text" value={loomRepeat} onChange={e=>{this.setState({loomRepeat:e.target.value})}} />
-                        Times
-                    </div>
-                </div>
+
                 <div className="design-btn" onClick={e=>{this.getDesign()}}>
                     Get Design
                 </div>
                 {
                     designPattern ?
-                        <div>{designPattern}</div>
+                        <div className="outer">
+                            <div className="design">{designPattern}</div>
+                        </div>
                     : null
                 }
             </div>

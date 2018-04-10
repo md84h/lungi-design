@@ -1,35 +1,81 @@
 .App{
+
+}
+.header{
+    background: #0ea740;
+    padding: 20px;
     text-align: center;
-    margin-top:20px;
+    font-size: 20px;
+    color: white;
+}
+.input-container{
+    padding: 20px 40px;
 }
 .Left,.Right{
     display: inline-block;
-    width: 40%;
-    border:1px solid black;
-    padding:30px;
+    width: 45%;
+    border:1px solid #d4dee5;
+    padding:20px;
     vertical-align: top;
-    text-align: left;
+    background: white;
+    border-radius: 4px;
+}
+.Left p, .Right p{
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 20px;
+}
+select{
+    background: #ffffff;
+    color: #333;
+    outline: none;
+    display: inline-block;
+    cursor: pointer;
+    width: 40%;
+    font-size: 14px;
+    border: 1px solid #bcc8d1;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    height: 35px;
+    vertical-align: top;
 }
 .add{
-    border:1px solid black;
+    border: 1px solid #bcc8d1;
     border-radius: 4px;
-    padding: 5px 10px;
+    padding: 7px 12px;
     display: inline-block;
     margin-left: 10px;
+    cursor: pointer;
 }
 .Right{
     margin-left: 20px;
 }
 .input{
     margin-left: 10px;
+    width: 35%;
+    font-size: 14px;
+    border: 1px solid #bcc8d1;
+    border-radius: 3px;
+    padding: 8px;
+    vertical-align: top;
+}
+.repeatInput{
+    vertical-align: middle;
+    margin-right: 10px;
 }
 .design-btn{
-    margin: 20px;
-    border: 1px solid black;
-    display: inline-block;
     padding: 10px;
     border-radius: 4px;
     cursor: pointer;
+    margin: 0 auto;
+    width: 84px;
+    display: block;
+    background: #ea3c3c;
+    color: white;
+}
+.design{
+    margin-left: 40px;
+    margin-top: 20px;
 }
 .row{
     height: 2px;
@@ -39,4 +85,23 @@
 	width: 2px;
 	height: 2px;
 	vertical-align: top;
+}
+@media (max-width: 600px) {
+    .input-container{
+        padding: 20px 10px;
+    }
+    .Left,.Right{
+        width: 88%;
+    }
+    .Right{
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+    .outer{
+        overflow: scroll; width: 500px; height: 210px;
+    }
+    .design{
+        margin-left: 10px;
+        width: 10000px;
+    }
 }
